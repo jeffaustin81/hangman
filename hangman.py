@@ -35,6 +35,21 @@ def hangman():
                 new_placeholder[place] = letter
             placeholders = " ".join(new_placeholder)
             print(placeholders)
+            guess_word = input("Would you like to guess the word? Y/n?: ")
+            if guess_word != "n":
+                word_guess = input("Your guess?: ")
+                if word_guess == word:
+                    print("You guessed it!!!")
+                    play_again = input("Play again Y/n?: ")
+                    if play_again != "n":
+                        hangman()
+                    else:
+                        sys.exit()
+                else:
+                    continue
+            else:
+                continue
+
         elif letter not in word:
             print("Sorry that letter isn't in the word!")
             print(placeholders)
